@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+// using normal approach
 bool checkPalindrome(int n){
   int num = n;
   int rev = 0;
@@ -15,8 +16,17 @@ bool checkPalindrome(int n){
     return false;
   }
 }
+
+//using Recursion
+int checkPalindromeRecursively(int n, int temp){
+  if(n==0)
+    return temp;
+  temp = temp*10 + n%10;
+  rev(n/10,temp);
+}
 int main(){
   int n = 121;
   bool isNumberPalindrome = checkPalindrome(n);
+  int temp = checkPalindromeRecursively(n,0);
   cout<<isNumberPalindrome;
 }
